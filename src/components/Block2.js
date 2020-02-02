@@ -1,49 +1,38 @@
 import React from "react";
 
-function Block2(){
+function Block2(props){
 
-
-
-    const redBlue = {
-        height: "100px",
-        width: "100px",
-        borderColor: "blue",
-        borderStyle: "solid",
-        borderWeight: "2px",
-        backgroundColor: "red"
-    }
-    const blueGreen = {
-        height: "100px",
-        width: "100px",
-        borderColor: "blue",
-        borderStyle: "solid",
-        borderWeight: "2px",
-        backgroundColor: "green"
-    }
-    const greenRed = {
-        height: "100px",
-        width: "100px",
-        borderColor: "green",
-        borderStyle: "solid",
-        borderWeight: "2px",
-        backgroundColor: "red"
-    }
-
-    const [blockColor, setBlockColor] = React.useState(greenRed);
+    const [borderColor, setBorderColor] = React.useState("blue");
+    const [backgroundColor, setBackgroundColor] = React.useState("red");
 
     const switchColor = () =>{
-        if(blockColor === greenRed){
-            setBlockColor(redBlue);
-        }else if(blockColor === redBlue){
-            setBlockColor(blueGreen)
+        if(borderColor === "blue" && backgroundColor === "red"){
+            setBorderColor("green");
+            setBackgroundColor("blue");
+        }else if(borderColor === "green" && backgroundColor === "blue"){
+            setBorderColor("red");
+            setBackgroundColor("green");
         }else{
-            setBlockColor(greenRed);
+            setBorderColor("blue");
+            setBackgroundColor("red");
         }
     }
 
+    const blockStyle = {
+        height: "100px",
+        width: "100px",
+        borderColor: props.borderColor,
+        borderStyle: "solid",
+        borderWeight: "2px",
+        backgroundColor: props.backgroundColor
+    }
+
+
     return(
-        <div onClick={switchColor}></div>
+        <div style={blockStyle} onClick={switchColor}></div>
     )
+
+
 }
 
 export default Block2;
