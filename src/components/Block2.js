@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Block2(props){
 
     const [borderColor, setBorderColor] = React.useState("blue");
@@ -29,7 +30,7 @@ function Block2(props){
 
 
     return(
-        <div style={blockStyle} onClick={switchColor}></div>
+        <div style={blockStyle} borderColor={"Blue"} backgroundColor={"Red"} onClick={switchColor}></div>
     )
 
 
